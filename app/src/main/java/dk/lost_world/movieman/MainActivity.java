@@ -228,6 +228,13 @@ public class MainActivity extends Activity implements MenuFragment.Listener, Mul
         incrementGameLost(movie);
     }
 
+    @Override
+    public void onGameLoadFailed() {
+        this.onBackPressed();
+        new AlertDialog.Builder(this).setMessage("Sorry, movie failed to load. Please try again.")
+            .setNeutralButton(android.R.string.ok, null).show();
+    }
+
     public void incrementGamePlayed(EventsClient eventsClient, Movie movie) {
         if(movie.isWithMultiplayer()) {
             eventsClient.increment(getString(R.string.event_multiplayer_game_played_id), 1);

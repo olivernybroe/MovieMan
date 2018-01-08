@@ -85,7 +85,7 @@ public class MovieMan {
 
                         MovieMan.this.movie = new Movie(movie);
                         deferred.start(MovieMan.this.movie);
-                        startTime = SystemClock.elapsedRealtime();
+                        resetTimer();
                     }
                     catch (JSONException e) {
                         deferred.reject(e);
@@ -101,6 +101,10 @@ public class MovieMan {
         return deferred.moviePromise();
     }
 
+    public MovieMan resetTimer() {
+        startTime = SystemClock.elapsedRealtime();
+        return this;
+    }
 
     public MovieMan guess(char guessedChar) {
         try{

@@ -13,8 +13,10 @@ import android.widget.AdapterView;
 import android.widget.Chronometer;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import org.jdeferred.DoneCallback;
@@ -41,6 +43,7 @@ public class GameFragment extends Fragment implements GuessWrongCallback, GuessC
     private ImageView life1;
     private ImageView life2;
     private ImageView life3;
+    private ProgressBar progressBar;
 
     private Listener listener;
 
@@ -52,6 +55,7 @@ public class GameFragment extends Fragment implements GuessWrongCallback, GuessC
     interface Listener {
         void onGameWon(Movie movie, long timeInSec, ArrayList<Character> guesses);
         void onGameLost(Movie movie, long timeInSec, ArrayList<Character> guesses);
+        void onGameLoadFailed();
     }
 
     @Nullable
@@ -66,6 +70,7 @@ public class GameFragment extends Fragment implements GuessWrongCallback, GuessC
         life1 = view.findViewById(R.id.life_1);
         life2 = view.findViewById(R.id.life_2);
         life3 = view.findViewById(R.id.life_3);
+        progressBar = view.findViewById(R.id.progress);
         movieMan = MainActivity.movieMan;
 
 
@@ -89,6 +94,7 @@ public class GameFragment extends Fragment implements GuessWrongCallback, GuessC
                 @Override
                 public void onFail(Exception result) {
                     Log.e(TAG, "fetch movie failed", result);
+                    GameFragment.this.listener.onGameLoadFailed();
                     //TODO: add support for exist if movie fetching fails.
                 }
             })
@@ -97,22 +103,34 @@ public class GameFragment extends Fragment implements GuessWrongCallback, GuessC
             .finished(this);
     }
 
-    public void showMovie(Movie movie) {
-        gridView.setAdapter(new LetterAdapter(this.getActivity()));
-        guessView.setText(movie.getHiddenTitle());
+    public void showMovie(final Movie movie) {
         Picasso.with(this.getActivity())
             .load(movie.getBackgroundUrl())
             .fit()
             .centerCrop()
-            .into(posterView);
-        chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
-            @Override
-            public void onChronometerTick(Chronometer chronometer) {
-                long t = SystemClock.elapsedRealtime() - chronometer.getBase();
-                chronometer.setText(DateFormat.format("mm:ss", t));
-            }
-        });
-        chronometer.start();
+            .into(posterView, new Callback() {
+                @Override
+                public void onSuccess() {
+                    progressBar.setVisibility(View.INVISIBLE);
+                    gridView.setAdapter(new LetterAdapter(GameFragment.this.getActivity()));
+                    guessView.setText(movie.getHiddenTitle());
+
+                    chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+                        @Override
+                        public void onChronometerTick(Chronometer chronometer) {
+                            long t = SystemClock.elapsedRealtime() - chronometer.getBase();
+                            chronometer.setText(DateFormat.format("mm:ss", t));
+                        }
+                    });
+                    movieMan.resetTimer();
+                    chronometer.start();
+                }
+
+                @Override
+                public void onError() {
+                    GameFragment.this.listener.onGameLoadFailed();
+                }
+            });
     }
 
     @Override
