@@ -2,6 +2,7 @@ package dk.lost_world.movieman;
 
 import android.app.Fragment;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -76,6 +77,9 @@ public class GameWonFragment extends Fragment implements View.OnClickListener {
             .animate();
 
         commonConfetti.infinite();
+
+        MediaPlayer mediaPlayer = MediaPlayer.create(this.getActivity(), R.raw.game_won_sound);
+        mediaPlayer.start();
 
         return view;
     }
