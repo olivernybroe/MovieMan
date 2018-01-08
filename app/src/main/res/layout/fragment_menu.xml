@@ -1,0 +1,117 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menuLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dk.lost_world.movieman.MainActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/movie_poster_placeholder"
+        app:layout_constraintBottom_toBottomOf="@id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/buttonGroupGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.550" />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/multiplayerButton"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/rounded_corners"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/button_multiplayer_icon"
+        app:layout_constraintEnd_toEndOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/startButton" />
+
+    <ImageButton
+        android:id="@+id/startButton"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@drawable/rounded_corners"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/button_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/buttonGroupGuideline" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <ImageButton
+        android:id="@+id/settingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_corners"
+        android:src="@drawable/button_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/achievementButton"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/rounded_corners"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/button_achievements_icon"
+        app:layout_constraintEnd_toEndOf="@id/multiplayerButton"
+        app:layout_constraintStart_toEndOf="@id/highscoreButton"
+        app:layout_constraintTop_toBottomOf="@id/multiplayerButton" />
+
+    <ImageButton
+        android:id="@+id/highscoreButton"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/rounded_corners"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@id/achievementButton"
+        android:src="@drawable/button_highscore_icon"
+        app:layout_constraintStart_toStartOf="@id/multiplayerButton"
+        app:layout_constraintTop_toBottomOf="@id/multiplayerButton"
+
+        />
+
+
+</android.support.constraint.ConstraintLayout>

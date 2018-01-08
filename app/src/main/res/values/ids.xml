@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_id">624156487573</string>
+    <string name="highscore_easy_id">CgkIld-AlZUSEAIQAQ</string>
+    <string name="event_game_won_id">CgkIld-AlZUSEAIQAw</string>
+    <string name="event_game_played_id">CgkIld-AlZUSEAIQBA</string>
+    <string name="event_game_abandoned_id">CgkIld-AlZUSEAIQCQ</string>
+    <string name="event_multiplayer_game_played_id">CgkIld-AlZUSEAIQCg</string>
+    <string name="event_multiplayer_game_won_id">CgkIld-AlZUSEAIQCw</string>
+    <string name="event_multiplayer_game_abandoned_id">CCgkIld-AlZUSEAIQDA</string>
+    <string name="achievement_5_games">CgkIld-AlZUSEAIQAg</string>
+    <string name="achievement_20_games">CgkIld-AlZUSEAIQBQ</string>
+    <string name="achievement_50_games">CgkIld-AlZUSEAIQBg</string>
+    <string name="achievement_100_games">CgkIld-AlZUSEAIQBw</string>
+    <string name="achievement_1000_games">CgkIld-AlZUSEAIQCA</string>
+</resources>

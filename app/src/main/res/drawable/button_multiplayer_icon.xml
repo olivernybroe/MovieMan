@@ -1,0 +1,5 @@
+<vector android:height="24dp" android:viewportHeight="512"
+    android:viewportWidth="512" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="@color/menu_buttons" android:name="ic multiplayer"
+        android:pathData="m468.9 41.5 -73.1 15.5 -127.2 139.4 43.1 47.3 141.6 -129.2 15.5 -73.1zm-267.5 228.6 -55.8 61.2 -28.7 -28.7 -28.8 28.7 20 20 -69.5 69.5 51.6 51.6 69.4 -69.5 19.4 19.3 28.7 -28.7 -28.7 -28.7 63 -57.5 -40.7 -37.2zm-158.4 -228.6 15.6 73.1 274.3 250.3 -28.7 28.7 28.8 28.8 19.3 -19.3 69.5 69.5 51.6 -51.6 -69.4 -69.5 20 -20 -28.8 -28.7 -28.7 28.7 -250.3 -274.3 -73.1 -15.5z"/>
+</vector>

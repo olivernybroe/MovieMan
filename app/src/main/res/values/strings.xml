@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Movie Man</string>
+
+    <string name="guessTitlePlaceholder">____________ : _______________</string>
+    <string name="selectMovieText">Select a movie to guess</string>
+    <string name="log_out_button">Log out</string>
+    <string name="log_in_button">LOG IN</string>
+    <string name="useHardMode">hardMode</string>
+</resources>
