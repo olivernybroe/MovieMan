@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">S153558 - Movie Man</string>
+    <string name="app_name">Movie Man</string>
 
     <string name="guessTitlePlaceholder">____________ : _______________</string>
     <string name="selectMovieText">Select a movie to guess</string>
