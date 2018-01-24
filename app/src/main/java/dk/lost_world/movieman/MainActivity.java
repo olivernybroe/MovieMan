@@ -12,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;

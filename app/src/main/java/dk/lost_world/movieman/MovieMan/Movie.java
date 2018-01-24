@@ -100,7 +100,6 @@ public class Movie {
         this.guesses.add(guessedChar);
         this.tries++;
 
-        Log.e(TAG, "guessed on: "+ guessedChar);
         if(this.title.toUpperCase().indexOf(guessedChar) >= 0) {
             return true;
         }
