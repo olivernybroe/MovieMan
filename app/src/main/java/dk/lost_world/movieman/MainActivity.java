@@ -139,8 +139,19 @@ public class MainActivity extends Activity implements MenuFragment.Listener, Mul
                 GoogleSignInAccount signedInAccount = result.getSignInAccount();
                 menuFragment.updateUi(signedInAccount);
             } else {
-                Log.e(TAG, "error code is:" + String.valueOf(result.getStatus().getStatusCode()));
                 String message = result.getStatus().getStatusMessage();
+
+                if(result.getStatus().hasResolution()) {
+                    try {
+                        result.getStatus().startResolutionForResult(this, 2002);
+                        return;
+                    } catch (IntentSender.SendIntentException e) {
+                        Log.e(TAG, "Failed resolution", e);
+                        message = "Unknown error.";
+                    }
+                }
+
+                Log.e(TAG, "error code is:" + String.valueOf(result.getStatus().getStatusCode()));
 
                 if (message == null || message.isEmpty()) {
                     message = "Failed to sign in to Play Games. Maybe try updating it Play Games through Store?";

@@ -111,19 +111,21 @@ public class GameFragment extends Fragment implements GuessWrongCallback, GuessC
             .into(posterView, new Callback() {
                 @Override
                 public void onSuccess() {
-                    progressBar.setVisibility(View.INVISIBLE);
-                    gridView.setAdapter(new LetterAdapter(GameFragment.this.getActivity()));
-                    guessView.setText(movie.getHiddenTitle());
+                    if(getActivity() != null) {
+                        progressBar.setVisibility(View.INVISIBLE);
+                        gridView.setAdapter(new LetterAdapter(GameFragment.this.getActivity()));
+                        guessView.setText(movie.getHiddenTitle());
 
-                    chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
-                        @Override
-                        public void onChronometerTick(Chronometer chronometer) {
-                            long t = SystemClock.elapsedRealtime() - chronometer.getBase();
-                            chronometer.setText(DateFormat.format("mm:ss", t));
-                        }
-                    });
-                    movieMan.resetTimer();
-                    chronometer.start();
+                        chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+                            @Override
+                            public void onChronometerTick(Chronometer chronometer) {
+                                long t = SystemClock.elapsedRealtime() - chronometer.getBase();
+                                chronometer.setText(DateFormat.format("mm:ss", t));
+                            }
+                        });
+                        movieMan.resetTimer();
+                        chronometer.start();
+                    }
                 }
 
                 @Override
@@ -158,6 +160,8 @@ public class GameFragment extends Fragment implements GuessWrongCallback, GuessC
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         view.setEnabled(false);
+        view.setAlpha(0.5f);
+
 
         this.movieMan.guess(((TextView) view).getText().charAt(0));
     }

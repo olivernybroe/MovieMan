@@ -30,7 +30,6 @@ public class GameWonFragment extends Fragment implements View.OnClickListener {
     Movie movie;
     long score;
     Listener listener;
-    CommonConfetti commonConfetti;
 
 
     interface Listener {
@@ -61,23 +60,6 @@ public class GameWonFragment extends Fragment implements View.OnClickListener {
         homeButton = view.findViewById(R.id.menuButton);
         homeButton.setOnClickListener(this);
 
-
-        commonConfetti = CommonConfetti.rainingConfetti(
-            container,
-            new int[] { Color.YELLOW, Color.RED, Color.GREEN }
-        );
-
-        commonConfetti.getConfettiManager()
-            .enableFadeOut(new Interpolator() {
-                @Override
-                public float getInterpolation(float input) {
-                    return 0.8f;
-                }
-            })
-            .animate();
-
-        commonConfetti.infinite();
-
         MediaPlayer mediaPlayer = MediaPlayer.create(this.getActivity(), R.raw.game_won_sound);
         mediaPlayer.start();
 
@@ -103,7 +85,6 @@ public class GameWonFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         v.setEnabled(false);
         MainActivity.movieMan.reset();
-        commonConfetti.getConfettiManager().terminate();
         this.listener.onMenuRequested();
     }
 }

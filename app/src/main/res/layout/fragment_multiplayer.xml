@@ -10,6 +10,8 @@
         android:layout_height="wrap_content"
         android:text="@string/selectMovieText"
         android:textSize="20sp"
+        android:textColor="@color/primary_dark"
+        android:textAllCaps="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

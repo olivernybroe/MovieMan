@@ -84,7 +84,7 @@ public class Movie {
     public String getHiddenTitle() {
         String guessedChars = TextUtils.join("", guesses)+TextUtils.join("", lowercase(guesses));
         return this.title
-            .replaceAll("[^"+guessedChars+" \\W]", "_");
+            .replaceAll("[^"+guessedChars+" \\W\\d]", "_");
     }
 
 

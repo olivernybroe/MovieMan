@@ -6,6 +6,15 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/background_color</item>
+        <item name="android:colorAccent">@color/primary_dark</item>
+        <item name="android:colorForeground">@color/menu_buttons</item>
+        <item name="android:colorPrimaryDark">@color/background_color</item>
+        <item name="android:colorPrimary">@color/background_color</item>
+        <item name="android:navigationBarColor">#3E2723</item>
+        <item name="android:textColorPrimaryInverse">@color/background_color</item>
+        <item name="colorButtonNormal">@color/primary_dark</item>
+        <item name="android:textColor">@color/menu_buttons</item>
     </style>
 
 </resources>
