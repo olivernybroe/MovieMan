@@ -156,7 +156,7 @@ public class Movie {
 
     public boolean hasGuessedAllLetters() {
         ArrayList<Character> chars = new ArrayList<>();
-        for (char c : this.title.replaceAll("[^\\w]", "").toCharArray()) {
+        for (char c : this.title.replaceAll("[\\W\\d]", "").toCharArray()) {
             chars.add(Character.toUpperCase(c));
         }
         return this.guesses.containsAll(chars);

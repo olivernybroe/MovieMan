@@ -118,10 +118,10 @@ public class MovieMan {
         catch (IllegalArgumentException ignored) {}
 
         if(this.movie.getWrongTries() >= 3) {
-            this.deferred.finished(this.movie, false, SystemClock.elapsedRealtime() - startTime,  this.movie.getGuesses()); //TODO: add time
+            this.deferred.finished(this.movie, false, SystemClock.elapsedRealtime() - startTime,  this.movie.getGuesses());
         }
         else if(this.movie.hasGuessedAllLetters()) {
-            this.deferred.finished(this.movie, true, SystemClock.elapsedRealtime() - startTime, this.movie.getGuesses()); // TODO: add time
+            this.deferred.finished(this.movie, true, SystemClock.elapsedRealtime() - startTime, this.movie.getGuesses());
         }
 
         return this;
