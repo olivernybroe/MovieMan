@@ -9,17 +9,14 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 
-import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.games.AchievementsClient;
 import com.google.android.gms.games.EventsClient;
 import com.google.android.gms.games.Games;
@@ -30,8 +27,6 @@ import java.util.ArrayList;
 
 import dk.lost_world.movieman.MovieMan.Movie;
 import dk.lost_world.movieman.MovieMan.MovieMan;
-
-import static com.google.android.gms.common.api.CommonStatusCodes.SIGN_IN_REQUIRED;
 
 public class MainActivity extends Activity implements MenuFragment.Listener, MultiplayerFragment.Listener, GameFragment.Listener, SettingsDialog.Listener, GameWonFragment.Listener {
 
@@ -68,6 +63,7 @@ public class MainActivity extends Activity implements MenuFragment.Listener, Mul
         );
 
         getFragmentManager().beginTransaction().add(R.id.fragment_container, menuFragment).commit();
+        signInSilently();
     }
 
     private void signInSilently() {
@@ -166,7 +162,6 @@ public class MainActivity extends Activity implements MenuFragment.Listener, Mul
     @Override
     protected void onStart() {
         super.onStart();
-        signInSilently();
     }
 
     @Override
