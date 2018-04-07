@@ -3,7 +3,7 @@ A Hangman game with focus on movies. \
 This game was created as a project for school.
 
 ## Features
-- Two game modes (Normal | Hard)
+- Two game modes (:baby:|:skull:)
 - Sounds on winning :musical_note:
 - Movies only :movie_camera:
 
