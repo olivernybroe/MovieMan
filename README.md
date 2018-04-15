@@ -1,6 +1,6 @@
 # MovieMan
 A Hangman game with focus on movies. \
-This game was created as a project for school.
+This game was created as a project for school, but later polished so it could be released in Google Play.
 
 ## Features
 - Two game modes (:baby:|:skull:)
