@@ -11,4 +11,3 @@ This game was created as a project for school, but later polished so it could be
 
 ## Installation guide
 For installment, just go to [google play store](https://play.google.com/store/apps/details?id=dk.lost_world.movieman).
-
